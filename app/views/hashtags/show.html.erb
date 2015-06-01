@@ -1,0 +1,9 @@
+<h1>Photos with <%= @hashtag.text %></h1>
+
+<% @hashtag.photos.each do |photo| %>
+	<img src=<%= photo.image %>><br>
+	<%= photo.caption %><br>
+<% end %>
+
+<br>
+<%= link_to 'Back to Feed', photos_path %>

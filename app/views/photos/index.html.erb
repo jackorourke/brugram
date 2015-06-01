@@ -1,18 +1,10 @@
-<%= link_to 'Upload your own', new_photo_path %><br>
+<h1>Your Photos</h1><br>
 
-<div>
+<%= link_to 'Upload new photo', new_photo_path %><br>
+
+
+
 <% @photos.each do |photo| %>
-  	<table>
-  		<tr>
-			<img><%= link_to image_tag(photo.image, :width => "40%", :height => "40%"), photo_path(photo) %></img>
-			<p><strong><%= photo.caption %></strong></p>
-		</tr>
-			<p>
-			<%= link_to 'Edit', edit_photo_path(photo) %>
-			<%= button_to 'Delete', photo_path(photo), 
-			method: :delete, 
-			data: {confirm: 'Do you really want to remove this awesome picture?'}%>
-			</p>
-	</table>
+	<img><%= link_to image_tag(photo.image, :width => "40%", :height => "40%"), photo_path(photo) %></img>
+	<p><strong><%= photo.caption %></strong></p><br>
  <% end %>
- </div>

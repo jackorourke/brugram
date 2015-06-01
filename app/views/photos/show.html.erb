@@ -1,13 +1,13 @@
 <%= image_tag(@photo.image, :width => "50%", :height => "50%") %>
 <p><%= @photo.caption %></p>
+<div>
+	<% @photo.hashtags.each do |hashtag| %>
+		<%= link_to hashtag.text, hashtag_path(hashtag) %><br>
+	<% end %>
+</div><br><br>
 
-<table style="width: 250px; line-height:20px;">
-	<tr>
-
-		<td><%= link_to 'Edit', edit_photo_path(@photo) %></td>
-		<td><%= button_to 'Delete', photo_path(@photo), 
-		method: :delete, 
-		data: {confirm: 'Do you really want to remove this awesome picture?'}%></td>
-		<td><%= link_to 'Back', photos_path %></td>
-	</tr>
-</table>
+<%= link_to 'Back', photos_path %>
+<%= link_to 'Edit', edit_photo_path(@photo) %>
+<%= link_to 'Destroy', photo_path(@photo),
+      			method: :delete, 
+      			data: {confirm: 'Are you sure?'} %>
